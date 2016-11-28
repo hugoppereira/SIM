@@ -1,7 +1,8 @@
-dificuldades_respiratórias	
+dificuldades_respiratï¿½rias	
 problemas_cardiacos
 fracturas
 Tonturas	
 Hemorragia	
 Azia	
-Vomitos	Cefaleia
+Vomitos
+Cefaleia
