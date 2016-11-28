@@ -23,9 +23,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `Consultas` (
   `ConsultaId` int(11) NOT NULL,
   `Sintoma` varchar(30) NOT NULL,
-  `Doença` varchar(50) NOT NULL,
-  `Medicação` varchar(50) NOT NULL,
-  `Comentário` varchar(500) NOT NULL,
+  `Doenca` varchar(50) NOT NULL,
+  `Medicacao` varchar(50) NOT NULL,
+  `Comentario` varchar(500) NOT NULL,
   `Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -93,7 +93,7 @@ CREATE TABLE `Triagem` (
   `Vomitos` int(1) NOT NULL,
   `Cefaleia` int(1) NOT NULL,
   `Temp` int(1) NOT NULL,
-  `Tensão` int(1) NOT NULL,
+  `Tensao` int(1) NOT NULL,
   `Triagem` int(1) NOT NULL,
   `Coment` varchar(500) NOT NULL,
   `Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
