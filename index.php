@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Sistema Informaçåo Medica</title>
+    <title>Sistema InformaÃ§Ã¥o Medica</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,10 +18,11 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="html5shiv.min.js"></script>
+    <script src="respond.min.js"></script>
     <![endif]-->
 </head>
+
 
 <body>
 
@@ -35,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Bootstrap theme</a>
+            <a class="navbar-brand" href="index.php">TriaFCT</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -57,22 +58,73 @@
                         <li><a href="#">Something else here</a></li>
                     </ul>
                 </li>
+                
+                <?php
+					session_start();
+					if(isset($_SESSION['authuser'])){
+						
+						if ($_SESSION['authuser']==1){	
+							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+						}
+						if ($_SESSION['authuser']==2){	
+							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+						}
+						if ($_SESSION['authuser']==3){	
+							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+						}
+						if ($_SESSION['authuser']==4){	
+							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+						}
+
+						
+						if ($_SESSION['authuser']!=1 && $_SESSION['authuser']!=2 && $_SESSION['authuser']!=3 && $_SESSION['authuser']!=4){
+						echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
+						}
+
+					} else {
+						echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
+					}
+				?>
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
+
+
+
+
 <div class="container theme-showcase" role="main">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-        <h1>Theme example</h1>
+        <h1>Hospital FCT</h1>
         <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
     </div>
 
     <div class="page-header">
         <h1>Nova Triagem</h1>
     </div>
+    
+    <?php 
+			if (isset($_GET['operacao'])){
+					
+				if ($_GET['operacao']=='showlogin')
+					include 'showlogin.php';
+				if ($_GET['operacao']=='checklogin') 
+					include 'checklogin.php';
+							
+				if ($_GET['operacao']=='checklogout') 
+					include 'checklogout.php';
+			
+			}else{
+				 }
+	?>
+
+    
+    
+    
     <div class="row">
         <div class="col-md-6">
             <div class="form-group row">

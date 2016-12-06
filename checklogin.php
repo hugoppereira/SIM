@@ -1,19 +1,20 @@
 <?php 
-	$link = mysql_connect('localhost', 'root', '')
+	$link = mysqli_connect('localhost', 'root', '')
 		or die('Nao foi possi­vel ligar: ' . mysql_error());
 		
-	mysql_select_db('trialfct')
+	mysqli_select_db($link,'trialfct')
 		or die('Nao foi possi­vel seleccionar a base de dados');
 	
 	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
 
-	$result = mysql_query ($sql) //ver funcao "extract"
+	$result = mysqli_query($link, $sql) //ver funcao "extract"
 		or die('Login Invalido!' . mysql_error());
 
-	$number = mysql_num_rows($result); //se retornar 1, significa que é um utilizador valido
+	$number = mysqli_num_rows($result); //se retornar 1, significa que é um utilizador valido
 	
-	$result = mysql_fetch_array($result);
+	$result = mysqli_fetch_array($result);
 	
+	//$_SESSION['authuser']=1;
 	
 	switch ($result['tipo']) {
 	
@@ -41,10 +42,8 @@
 			echo "Login invalido";
 			break;
 	}
-	
-	
-	
-	mysql_close();
+	echo "O VALOR DE SESSION E no check: " . $_SESSION["authuser"] . ".";
+	mysqli_close($link);
 	
 	
 ?>
