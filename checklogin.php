@@ -2,15 +2,17 @@
 
     include_once "connection.php";
 
+    $link = GetMyConnection();
+
 	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
 
-	$result = mysqli_query($g_link, $sql) //ver funcao "extract"
-		or die('Login Invalido!' . mysqli_error());
+	$result = mysqli_query($link, $sql) //ver funcao "extract"
+		or die('Login Invalido!' . mysqli_error($link));
 
 	$number = mysqli_num_rows($result); //se retornar 1, significa que � um utilizador valido
 	
 	$result = mysqli_fetch_array($result);
-	
+
 
 	switch ($result['tipo']) {
 
@@ -40,7 +42,7 @@
 	}
 	
 	//echo "O VALOR DE SESSION E no check: " . $_SESSION["authuser"] . ".";
-	mysqli_close($g_link);
+	mysqli_close($link);
 	
 	
 ?>
