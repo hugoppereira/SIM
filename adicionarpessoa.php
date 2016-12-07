@@ -43,7 +43,8 @@
 		            </div>
 		        </div>
 		    </div>
-		} 
+		}
+		
 		if(isset($_POST['paciente'])){
 				echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
 		} 
