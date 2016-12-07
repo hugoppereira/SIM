@@ -14,6 +14,6 @@ function GetMyConnection()
     if( $g_link )
         return $g_link;
     $g_link = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD) or die('Nao foi possivel ligar: ' . mysqli_error());
-    mysqli_select_db(GetMyConnection(),'DB_HOST') or die('Nao foi possi�vel seleccionar a base de dados');
+    mysqli_select_db(GetMyConnection(),DB_DATABASE) or die('Nao foi possi�vel seleccionar a base de dados');
     return $g_link;
 }
