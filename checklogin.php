@@ -13,12 +13,8 @@
 	$number = mysqli_num_rows($result); //se retornar 1, significa que � um utilizador valido
 	
 	$result = mysqli_fetch_array($result);
-
-print_r ($result);
-exit;
 	
 
-	
 	switch ($result['tipo']) {
 
 	    case 'paciente':
