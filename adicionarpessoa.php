@@ -1,8 +1,8 @@
 <form method="post">
 
-		<button  type="button" name="medico" class="btn btn-lg btn-primary">Medico</button>
-        <button type="button" name="enfermeiro" class="btn btn-lg btn-success">Enfermeiro</button>
-		<button type="button" name="paciente" class="btn btn-lg btn-warning">Paciente</button>
+		<button  type="submit" name="medico" class="btn btn-lg btn-primary">Medico</button>
+        <button type="submit" name="enfermeiro" class="btn btn-lg btn-success">Enfermeiro</button>
+		<button type="submit" name="paciente" class="btn btn-lg btn-warning">Paciente</button>
 
 	<?php if(isset($_POST['medico']) || isset($_POST['enfermeiro'])){ ?>
 
