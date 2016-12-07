@@ -1,7 +1,9 @@
 <?php 
 
     include_once "connection.php";
+
     $link = GetMyConnection();
+
 	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
 
 	$result = mysqli_query($link, $sql) //ver funcao "extract"
