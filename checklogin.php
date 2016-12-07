@@ -4,7 +4,7 @@
 
     $link = GetMyConnection();
 
-	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
+	$sql = 'SELECT * FROM Users WHERE (Username = "'.$_POST["username"].'" AND Password = "'.$_POST["password"].'")';
 
 	$result = mysqli_query($link, $sql) //ver funcao "extract"
 		or die('Login Invalido!' . mysqli_error($link));
@@ -14,7 +14,7 @@
 	$result = mysqli_fetch_array($result);
 	
 
-	switch ($result['tipo']) {
+	switch ($result['Perfil']) {
 
 	    case 'paciente':
 	        $_SESSION['authuser']=1;
