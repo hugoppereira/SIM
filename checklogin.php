@@ -1,23 +1,26 @@
 <?php 
-	$link = mysqli_connect('localhost', 'root', '')
-		or die('Nao foi possi­vel ligar: ' . mysql_error());
+	$link = mysqli_connect('localhost', 'root', 'root')
+		or die('Nao foi possivel ligar: ' . mysqli_error());
 		
-	mysqli_select_db($link,'trialfct')
-		or die('Nao foi possi­vel seleccionar a base de dados');
+	mysqli_select_db($link,'sim')
+		or die('Nao foi possiï¿½vel seleccionar a base de dados');
 	
 	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
 
 	$result = mysqli_query($link, $sql) //ver funcao "extract"
-		or die('Login Invalido!' . mysql_error());
+		or die('Login Invalido!' . mysqli_error());
 
-	$number = mysqli_num_rows($result); //se retornar 1, significa que é um utilizador valido
+	$number = mysqli_num_rows($result); //se retornar 1, significa que ï¿½ um utilizador valido
 	
 	$result = mysqli_fetch_array($result);
+
+print_r ($result);
+exit;
 	
 
 	
 	switch ($result['tipo']) {
-	
+
 	    case 'paciente':
 	        $_SESSION['authuser']=1;
 			$_SESSION['user']=$_POST["username"];
