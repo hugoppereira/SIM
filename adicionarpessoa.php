@@ -4,11 +4,9 @@
         <button type="button" name="enfermeiro" class="btn btn-lg btn-success">Enfermeiro</button>
 		<button type="button" name="paciente" class="btn btn-lg btn-warning">Paciente</button>
 
-	<?php
-			
-		if(isset($_POST['medico'] || $_POST['enfermeiro'])){
-		
-			<div class="row">
+	<?php if(isset($_POST['medico']) || isset($_POST['enfermeiro'])){ ?>
+
+            <div class="row">
 		        <div class="col-md-6">
 		            <div class="form-group row">
 		                <label for="example-text-input" class="col-xs-2 col-form-label">Nome</label>
@@ -43,12 +41,12 @@
 		            </div>
 		        </div>
 		    </div>
-		}
+    <?php }
 		
 		if(isset($_POST['paciente'])){
 				echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
-		} 
-	?>
-	
+		}
+
+    ?>
 
 </form>

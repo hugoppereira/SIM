@@ -83,7 +83,15 @@ session_start()
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
 						if ($_SESSION['authuser']==4){	//admin
-							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+                            echo '<li class="dropdown">';
+                                echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
+                                echo '<ul class="dropdown-menu">';
+                                    echo '<li><a href="index.php?operacao=adicionarpessoa">Nova Pessoa</a></li>';
+                                    echo '<li><a href="#">Editar Pessoa</a></li>';
+                                echo '</ul>';
+                            echo '</li>';
+
+                            echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
 
 						
@@ -126,6 +134,8 @@ session_start()
 					include 'checklogin.php';			
 				if ($_GET['operacao']=='checklogout') 
 					include 'checklogout.php';
+                if ($_GET['operacao']=='adicionarpessoa')
+                    include 'adicionarpessoa.php';
 			
 			}else{
 				 }
