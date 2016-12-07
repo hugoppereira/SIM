@@ -1,8 +1,9 @@
 <?php 
-	$link = mysqli_connect('localhost', 'root', 'root')
-		or die('Nao foi possivel ligar: ' . mysqli_error());
-		
-	mysqli_select_db($link,'sim')
+
+    include_once "connection.php";
+
+
+	mysqli_select_db(GetMyConnection(),'sim')
 		or die('Nao foi possi�vel seleccionar a base de dados');
 	
 	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
