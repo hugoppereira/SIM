@@ -2,21 +2,10 @@
 
     include_once "connection.php";
 
-<<<<<<< HEAD
-
-	mysqli_select_db(GetMyConnection(),'trialfct')
-		or die('Nao foi possi�vel seleccionar a base de dados');
-	
-	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
-
-	$result = mysqli_query($g_link, $sql) //ver funcao "extract"
-		or die('Login Invalido!' . mysqli_error($g_link));
-=======
 	$sql = 'SELECT * FROM USERS WHERE (user = "'.$_POST["username"].'" AND pass = "'.$_POST["password"].'")';
 
 	$result = mysqli_query($g_link, $sql) //ver funcao "extract"
 		or die('Login Invalido!' . mysqli_error());
->>>>>>> github/master
 
 	$number = mysqli_num_rows($result); //se retornar 1, significa que � um utilizador valido
 	
