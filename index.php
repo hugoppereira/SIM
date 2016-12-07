@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php session_start(); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,13 +44,7 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Nova Triagem</a></li>
-                        <li><a href="#">Editar Triagem</a></li>
-                    </ul>
-                </li>
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilizadores <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -60,19 +55,28 @@
                 </li>
                 
                 <?php
-					session_start();
+                
 					if(isset($_SESSION['authuser'])){
 						
-						if ($_SESSION['authuser']==1){	
+						if ($_SESSION['authuser']==1){	//paciente
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
-						if ($_SESSION['authuser']==2){	
+						if ($_SESSION['authuser']==2){	//enfermeiro
+							
+							echo '<li class="dropdown">';
+                    			echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
+								echo '<ul class="dropdown-menu">';
+                           			echo '<li><a href="#">Nova Triagem</a></li>';
+                            		echo '<li><a href="#">Editar Triagem</a></li>';
+                    			echo '</ul>';
+                			echo '</li>';
+						
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
-						if ($_SESSION['authuser']==3){	
+						if ($_SESSION['authuser']==3){	//medico
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
-						if ($_SESSION['authuser']==4){	
+						if ($_SESSION['authuser']==4){	//admin
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
 
@@ -113,8 +117,7 @@
 				if ($_GET['operacao']=='showlogin')
 					include 'showlogin.php';
 				if ($_GET['operacao']=='checklogin') 
-					include 'checklogin.php';
-							
+					include 'checklogin.php';			
 				if ($_GET['operacao']=='checklogout') 
 					include 'checklogout.php';
 			

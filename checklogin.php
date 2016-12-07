@@ -14,7 +14,7 @@
 	
 	$result = mysqli_fetch_array($result);
 	
-	//$_SESSION['authuser']=1;
+
 	
 	switch ($result['tipo']) {
 	
@@ -42,6 +42,7 @@
 			echo "Login invalido";
 			break;
 	}
+	
 	echo "O VALOR DE SESSION E no check: " . $_SESSION["authuser"] . ".";
 	mysqli_close($link);
 	
