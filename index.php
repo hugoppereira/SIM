@@ -134,10 +134,15 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="example-search-input" class="col-xs-2 col-form-label">Search</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-                </div>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                </label>
             </div>
             <div class="form-group row">
                 <label for="example-email-input" class="col-xs-2 col-form-label">Email</label>
