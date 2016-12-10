@@ -87,7 +87,8 @@ session_start()
                                 echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
                                 echo '<ul class="dropdown-menu">';
                                     echo '<li><a href="index.php?operacao=adicionarpessoa">Nova Pessoa</a></li>';
-                                    echo '<li><a href="#">Editar Pessoa</a></li>';
+                                    echo '<li><a href="index.php?operacao=listarpessoas">Listar Pessoas</a></li>';
+                                    echo '<li><a href="index.php?operacao=editarpessoa">Editar Pessoa</a></li>';
                                 echo '</ul>';
                             echo '</li>';
 
@@ -121,9 +122,9 @@ session_start()
         <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
     </div>
 
-    <div class="page-header">
-        <h1>Nova Triagem</h1>
-    </div>
+<!--    <div class="page-header">-->
+<!--        <h1>Nova Triagem</h1>-->
+<!--    </div>-->
     
     <?php 
 			if (isset($_GET['operacao'])){
@@ -136,6 +137,16 @@ session_start()
 					include 'checklogout.php';
                 if ($_GET['operacao']=='adicionarpessoa')
                     include 'adicionarpessoa.php';
+                if ($_GET['operacao']=='adicionarpessoa_sql')
+                    include 'adicionarpessoa_sql.php';
+                if ($_GET['operacao']=='adicionarpessoa_form')
+                    include 'adicionarpessoa_form.php';
+                if ($_GET['operacao']=='listarpessoas')
+                    include 'listarpessoas.php';
+                if ($_GET['operacao']=='editarpessoa')
+                    include 'editarpessoa.php';
+                if ($_GET['operacao']=='verperfil')
+                    include 'verperfil.php';
 			
 			}else{
 				 }
