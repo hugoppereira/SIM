@@ -13,7 +13,6 @@ if (isset($_POST['medico'])) {
 ?>
 
 
-
 <form method="post", action="index.php?operacao=adicionarpessoa_sql">
 
     <?php echo $_SESSION['perfil'] ?>
