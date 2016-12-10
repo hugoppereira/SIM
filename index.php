@@ -76,7 +76,7 @@ session_start()
 							echo '<li class="dropdown">';
                     			echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
 								echo '<ul class="dropdown-menu">';
-                           			echo '<li><a href="#">Nova Triagem</a></li>';
+                           			echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
                             		echo '<li><a href="#">Editar Triagem</a></li>';
                     			echo '</ul>';
                 			echo '</li>';
@@ -151,6 +151,11 @@ session_start()
                     include 'editarpessoa.php';
                 if ($_GET['operacao']=='verperfil')
                     include 'verperfil.php';
+                if ($_GET['operacao']=='triagem')
+                    include 'triagem.php';
+                if ($_GET['operacao']=='adicionartriagem')
+                    include 'adicionartriagem.php';
+
 			
 			}else{
 				 }
