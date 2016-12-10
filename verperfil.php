@@ -14,7 +14,7 @@ $result = mysqli_fetch_array($result);
 <div class="row">
     <h1>Ficha de Utilizador</h1>
     <div class="col-md-6">
-        teste
+        <h2><?php $result['Nome']; ?></h2>
     </div>
 </div>
 
