@@ -22,6 +22,10 @@ session_start()
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom css -->
     <link href="css/sim.css" rel="stylesheet">
+    <!-- dataTables css -->
+    <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -162,5 +166,17 @@ session_start()
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<!-- data tables jquery -->
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<!-- data tables bootstrap -->
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#listprofiles').DataTable();
+    } );
+</script>
+
+
+
 </body>
 </html>
