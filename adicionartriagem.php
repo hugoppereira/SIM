@@ -1,5 +1,5 @@
-<?php $identity=$_GET['id']; ?>
 
+<?php $identity=$_GET['id']; ?>
 
 <table cellspacing="2" align="center">
     <form method="post" >
@@ -29,7 +29,7 @@
 
         <tr>
             <td align="left" style="height: 18px">
-                <input type="checkbox" name="prob_resp" value="1">Problemas Respirat&oacute;rios
+                <input type="checkbox" name="prob_resp" value="1">Dificuldades Respirat&oacute;rias
             </td>
             <td align="left" width="50%" style="height: 18px">
                 &nbsp;&nbsp;&nbsp;&nbsp;

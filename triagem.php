@@ -42,3 +42,8 @@ $result = $link->query($sql);
     ?>
     </tbody>
 </table>
+
+<form method="post" action="index.php?operacao=adicionarpessoa_form">
+
+    <button type="submit" id="paciente" name="paciente" class="btn btn-lg btn-warning">Adiccionar Novo Paciente</button>
+</form>
