@@ -1,5 +1,5 @@
 
-<?php $identity=$_GET['id']; //value=<?php echo $identity; ?>
+<?php $_SESSION['identity']=$_GET['id']; //value=<?php echo $identity; ?>
 
     <form method="post" action="index.php?operacao=atribuicor">
 
@@ -8,7 +8,7 @@
                 <div class="form-group row">
                     <label for="example-text-input" class="col-xs-1 col-form-label">ID:</label>
                     <div class="col-xs-5">
-                        <p><?php echo $identity; ?></p>
+                        <p><?php echo $_SESSION['identity']; ?></p>
                     </div>
                 </div>
             </div>
