@@ -15,11 +15,12 @@ if (isset($_POST['guardar'])) {
 
     $link = GetMyConnection();
 
-
     $sql = "INSERT INTO Users (Nome, Morada, Contacto, Sexo, DataNascimento, NIF, Username, Password, Perfil) VALUES ('".$nome."','".$morada."','".$telefone."','".$sexo."','".$datanasc."','".$nif."','".$username."','".$pass."','".$perfil."')";
-    //$sql = "INSERT INTO teste VALUES (1,'".$nome."')";
+    $sql1 = "SELECT Userid FROM Users ORDER BY Userid DESC LIMIT 1";
     $result = mysqli_query($link,$sql);
-
+    $result1 = mysqli_query($link,$sql1);
+    $result1 = mysqli_fetch_array($result1);
+    $iduser = $result1['Userid'];
 
     if($result==0){
         echo "<table>"; //comecar uma tabela
@@ -31,11 +32,16 @@ if (isset($_POST['guardar'])) {
         echo "<table>"; //comecar uma tabela
         echo '<tr><td>&nbsp;</td></tr>';
         echo '<tr><td>Utilizador inserido com sucesso!</td></tr>';
-        echo $perfil;
         echo "</table>"; //fechar a tabela
     }
 
     mysqli_close($link);
 }
-echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
+
+if (isset($_SESSION['perfilaux'])){
+    $url = "index.php?operacao=adicionartriagem&id=$iduser";
+    echo header('Location: ' . $url);
+}else {
+    echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
+}
 ?>

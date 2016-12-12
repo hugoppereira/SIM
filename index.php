@@ -114,16 +114,11 @@ session_start()
     </div>
 </nav>
 
-
-
-
-
 <div class="container theme-showcase" role="main">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <h1>Hospital FCT</h1>
-        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
     </div>
 
 <!--    <div class="page-header">-->
@@ -155,6 +150,8 @@ session_start()
                     include 'triagem.php';
                 if ($_GET['operacao']=='adicionartriagem')
                     include 'adicionartriagem.php';
+                if ($_GET['operacao']=='atribuicor')
+                    include 'atribuicor.php';
 
 			
 			}else{
@@ -175,6 +172,7 @@ session_start()
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <!-- data tables bootstrap -->
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#listprofiles').DataTable();

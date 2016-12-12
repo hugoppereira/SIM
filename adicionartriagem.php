@@ -1,86 +1,75 @@
 
-<?php $identity=$_GET['id']; ?>
+<?php $identity=$_GET['id']; //value=<?php echo $identity; ?>
 
-<table cellspacing="2" align="center">
-    <form method="post" >
-<!--          action="index.php?operacao=atribuircor">-->
+    <form method="post" action="index.php?operacao=atribuicor">
 
-        <tr>
-            <td align="right">
-                ID: <label type="text" name="id" value=<?php echo $identity; ?> style="width: 70px">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td align="right">
-                Glic&eacute;mia: <input type="text" name="glicemia" style="width: 70px">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-        </tr>
-
-        <tr>
-            <td align="right">
-                Temperatura: <input type="text" name="temperatura" style="width: 70px">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td align="right">
-                Tens&atilde;o <input type="text" name="tensao" style="width: 70px">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-        </tr>
-
-        <tr>
-            <td align="left" style="height: 18px">
-                <input type="checkbox" name="prob_resp" value="1">Dificuldades Respirat&oacute;rias
-            </td>
-            <td align="left" width="50%" style="height: 18px">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" name="prob_card" value="1">Problemas Card&iacute;acos
-            </td>
-        </tr>
-
-        <tr>
-            <td align="left">
-                <input type="checkbox" name="fract" value="1">Fracturas
-            </td>
-            <td align="left">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" name="tont" value="1">Tonturas
-            </td>
-        </tr>
-
-        <tr>
-            <td align="left">
-                <input type="checkbox" name="tosse" value="1">Tosse
-            </td>
-            <td>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" name="azia" value="1">Azia
-
-            </td>
-        </tr>
-
-        <tr>
-            <td align="left">
-                <input type="checkbox" name="vomitos" value="1">V&oacute;mitos
-            </td>
-            <td align="left">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" name="cefaleia" value="1">Cefaleia
-            </td>
-        </tr>
-
-        <tr>
-            <td align="center" colspan="2">
-                &nbsp;
-            </td>
-        </tr>
-
-        <tr>
-            <td align="center" colspan="2">
-                <input type="submit" name="Submit" value="Atribuir C&ocirc;r" style="width: 135px; height: 35px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-1 col-form-label">ID:</label>
+                    <div class="col-xs-5">
+                        <p><?php echo $identity; ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Glic&eacute;mia</label>
+                    <div class="col-xs-10">
+                        <input class="form-control" type="text" name="glicemia" id="glicemia" value="100">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Dificuldades Respirat&oacute;rias</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="difresp" id="difresp" value="1">
+                    </div>
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Problemas Card&iacute;acos</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="probcard" id="probcard" value="1">
+                    </div>
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Fracturas</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="fracturas" id="fracturas" value="1">
+                    </div>
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Tonturas</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="tonturas" id="tonturas" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Tensao</label>
+                    <div class="col-xs-10">
+                        <input class="form-control" type="text" name="tensao" id="tensao" value="13">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Hemorragia</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="hemorragia" id="hemorragia" value="1">
+                    </div>
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Azia</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="azia" id="azia" value="1">
+                    </div>
+                    <label for="example-text-input" class="col-xs-2 col-form-label">V&oacute;mitos</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="vomitos" id="vomitos" value="1">
+                    </div>
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Cefaleia</label>
+                    <div class="col-xs-1">
+                        <input class="form-control" type="checkbox" name="cefaleia" id="cefaleia" value="1">
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-            </td>
-        </tr>
+        <button  type="submit" id="validar" name="validar" class="btn btn-lg btn-primary">Validar</button>
+
 
     </form>
-</table>
+
+

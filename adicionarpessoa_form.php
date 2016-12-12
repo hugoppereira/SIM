@@ -7,11 +7,15 @@ if (isset($_POST['medico'])) {
     } else {
         if (isset($_POST['enfermeiro'])) {
             $_SESSION['perfil'] = 'enfermeiro';
-                }
+        }else{
+            if (isset($_POST['pacientetri'])) {
+                $_SESSION['perfil'] = 'paciente';
+                $_SESSION['perfilaux'] = 'pacientetri';
+            }
+        }
     }
 }
 ?>
-
 <form method="post", action="index.php?operacao=adicionarpessoa_sql">
 
     <?php echo $_SESSION['perfil'] ?>
@@ -70,6 +74,7 @@ if (isset($_POST['medico'])) {
             </div>
         </div>
     </div>
+
 </div>
 
 <button  type="submit" name="guardar" class="btn btn-lg btn-primary">Inserir</button>
