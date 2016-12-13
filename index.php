@@ -28,7 +28,6 @@ session_start()
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
 
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="html5shiv.min.js"></script>
@@ -43,7 +42,8 @@ session_start()
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -57,131 +57,135 @@ session_start()
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <?php
-                
-					if(isset($_SESSION['authuser'])){
-						
-						if ($_SESSION['authuser']==1){	//paciente
-							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
-						}
-						if ($_SESSION['authuser']==2){	//enfermeiro
 
-                            echo '<li class="dropdown">';
-                                echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
-                                echo '<ul class="dropdown-menu">';
-                                    echo '<li><a href="index.php?operacao=listarpessoas">Listar Pessoas</a></li>';
-                                echo '</ul>';
-                            echo '</li>';
-							echo '<li class="dropdown">';
-                    			echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
-								echo '<ul class="dropdown-menu">';
-                           			echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
-                            		echo '<li><a href="#">Editar Triagem</a></li>';
-                                    echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
-                    			echo '</ul>';
-                			echo '</li>';
-						
-							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
-						}
-						if ($_SESSION['authuser']==3){	//medico
-                            echo '<li class="dropdown">';
-                            echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
-                            echo '<ul class="dropdown-menu">';
-                            echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
-                            echo '<li><a href="#">Editar Triagem</a></li>';
-                            echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
-                            echo '</ul>';
-                            echo '</li>';
-							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
-						}
-						if ($_SESSION['authuser']==4){	//admin
-                            echo '<li class="dropdown">';
-                                echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
-                                echo '<ul class="dropdown-menu">';
-                                    echo '<li><a href="index.php?operacao=adicionarpessoa">Nova Pessoa</a></li>';
-                                    echo '<li><a href="index.php?operacao=listarpessoas">Listar Pessoas</a></li>';
-                                    echo '<li><a href="index.php?operacao=editarpessoa">Editar Pessoa</a></li>';
-                                echo '</ul>';
-                            echo '</li>';
-                            echo '<li class="dropdown">';
-                                echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
-                                echo '<ul class="dropdown-menu">';
-                                    echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
-                                    echo '<li><a href="#">Editar Triagem</a></li>';
-                                echo '</ul>';
-                            echo '</li>';
+                if (isset($_SESSION['authuser']) && isset($_SESSION['perfil']) && isset($_SESSION['nome'])) {
 
-                            echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+                    if ($_SESSION['authuser'] == 1) {    //paciente
 
-						}
+                        echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+                        echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </a></li>';
+                        echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
 
-						
-						if ($_SESSION['authuser']!=1 && $_SESSION['authuser']!=2 && $_SESSION['authuser']!=3 && $_SESSION['authuser']!=4){
-						echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
-						}
 
-					} else {
-						echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
-					}
-				?>
+                    }
+                    if ($_SESSION['authuser'] == 2) {    //enfermeiro
 
+                        echo '<li class="dropdown">';
+                        echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
+                        echo '<ul class="dropdown-menu">';
+                        echo '<li><a href="index.php?operacao=listarpessoas">Listar Pessoas</a></li>';
+                        echo '</ul>';
+                        echo '</li>';
+                        echo '<li class="dropdown">';
+                        echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
+                        echo '<ul class="dropdown-menu">';
+                        echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
+                        echo '<li><a href="#">Editar Triagem</a></li>';
+                        echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
+                        echo '</ul>';
+                        echo '</li>';
+
+                        echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+                        echo '<li><p align="right">Nome: ' . $_SESSION['nome'] . ' </p></li>';
+                        echo '<li><p>Perfil: ' . $_SESSION['perfil'] . ' </p></li>';
+                    }
+                    if ($_SESSION['authuser'] == 3) {    //medico
+                        echo '<li class="dropdown">';
+                        echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
+                        echo '<ul class="dropdown-menu">';
+                        echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
+                        echo '</ul>';
+                        echo '</li>';
+                        echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+                        echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </aal></li>';
+                        echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
+                    }
+                    if ($_SESSION['authuser'] == 4) {    //admin
+                        echo '<li class="dropdown">';
+                        echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
+                        echo '<ul class="dropdown-menu">';
+                        echo '<li><a href="index.php?operacao=adicionarpessoa">Nova Pessoa</a></li>';
+                        echo '<li><a href="index.php?operacao=listarpessoas">Listar Pessoas</a></li>';
+                        echo '<li><a href="index.php?operacao=editarpessoa">Editar Pessoa</a></li>';
+                        echo '</ul>';
+                        echo '</li>';
+                        echo '<li class="dropdown">';
+                        echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
+                        echo '<ul class="dropdown-menu">';
+                        echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
+                        echo '<li><a href="#">Editar Triagem</a></li>';
+                        echo '</ul>';
+                        echo '</li>';
+                        echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+                        echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </a></li>';
+                        echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
+
+                    }
+
+                    if ($_SESSION['authuser'] != 1 && $_SESSION['authuser'] != 2 && $_SESSION['authuser'] != 3 && $_SESSION['authuser'] != 4) {
+                        echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
+                    }
+
+                } else {
+                    echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
+                }
+                ?>
             </ul>
+
         </div><!--/.nav-collapse -->
+
     </div>
 </nav>
 
 <div class="container theme-showcase" role="main">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron" align="center">
         <h1>Hospital FCT</h1>
     </div>
 
-<!--    <div class="page-header">-->
-<!--        <h1>Nova Triagem</h1>-->
-<!--    </div>-->
-    
-    <?php 
-			if (isset($_GET['operacao'])){
-					
-				if ($_GET['operacao']=='showlogin')
-					include 'showlogin.php';
-				if ($_GET['operacao']=='checklogin') 
-					include 'checklogin.php';			
-				if ($_GET['operacao']=='checklogout') 
-					include 'checklogout.php';
-                if ($_GET['operacao']=='adicionarpessoa')
-                    include 'adicionarpessoa.php';
-                if ($_GET['operacao']=='adicionarpessoa_sql')
-                    include 'adicionarpessoa_sql.php';
-                if ($_GET['operacao']=='adicionarpessoa_form')
-                    include 'adicionarpessoa_form.php';
-                if ($_GET['operacao']=='listarpessoas')
-                    include 'listarpessoas.php';
-                if ($_GET['operacao']=='editarpessoa')
-                    include 'editarpessoa.php';
-                if ($_GET['operacao']=='verperfil')
-                    include 'verperfil.php';
-                if ($_GET['operacao']=='triagem')
-                    include 'triagem.php';
-                if ($_GET['operacao']=='adicionartriagem')
-                    include 'adicionartriagem.php';
-                if ($_GET['operacao']=='atribuicor')
-                    include 'atribuicor.php';
-                if ($_GET['operacao']=='adicionartriagem_sql')
-                    include 'adicionartriagem_sql.php';
-                if ($_GET['operacao']=='listaespera')
-                    include 'listaespera.php';
-                if ($_GET['operacao']=='retirapaciente_sql')
-                    include 'retirapaciente_sql.php';
+    <!--    <div class="page-header">-->
+    <!--        <h1>Nova Triagem</h1>-->
+    <!--    </div>-->
+
+    <?php
+    if (isset($_GET['operacao'])) {
+
+        if ($_GET['operacao'] == 'showlogin')
+            include 'showlogin.php';
+        if ($_GET['operacao'] == 'checklogin')
+            include 'checklogin.php';
+        if ($_GET['operacao'] == 'checklogout')
+            include 'checklogout.php';
+        if ($_GET['operacao'] == 'adicionarpessoa')
+            include 'adicionarpessoa.php';
+        if ($_GET['operacao'] == 'adicionarpessoa_sql')
+            include 'adicionarpessoa_sql.php';
+        if ($_GET['operacao'] == 'adicionarpessoa_form')
+            include 'adicionarpessoa_form.php';
+        if ($_GET['operacao'] == 'listarpessoas')
+            include 'listarpessoas.php';
+        if ($_GET['operacao'] == 'editarpessoa')
+            include 'editarpessoa.php';
+        if ($_GET['operacao'] == 'verperfil')
+            include 'verperfil.php';
+        if ($_GET['operacao'] == 'triagem')
+            include 'triagem.php';
+        if ($_GET['operacao'] == 'adicionartriagem')
+            include 'adicionartriagem.php';
+        if ($_GET['operacao'] == 'atribuicor')
+            include 'atribuicor.php';
+        if ($_GET['operacao'] == 'adicionartriagem_sql')
+            include 'adicionartriagem_sql.php';
+        if ($_GET['operacao'] == 'listaespera')
+            include 'listaespera.php';
+        if ($_GET['operacao'] == 'retirapaciente_sql')
+            include 'retirapaciente_sql.php';
 
 
-
-
-
-
-            }else{
-				 }
-	?>
+    } else {
+    }
+    ?>
 
 </div> <!-- /container -->
 
@@ -200,12 +204,15 @@ session_start()
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#listprofiles').DataTable();
+<<<<<<< 2702ebce4633252d7732f700bd61b79aadd2a7c7
         $( "#datanasc" ).datepicker({ dateFormat: 'yy-mm-dd' });
     } );
+=======
+    });
+>>>>>>> 4e881b61598390b75e447dcdb289f48c2a41c498
 </script>
-
 
 
 </body>

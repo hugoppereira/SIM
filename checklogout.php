@@ -35,7 +35,7 @@
 			if(isset($_POST['submityes'])){
 				include 'logout.php';
 			} 
-			if(isset($_POST['submityno'])){
+			if(isset($_POST['submitno'])){
 				echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
 			} 
 		?>

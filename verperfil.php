@@ -10,7 +10,6 @@ $result = $link->query($sql);
 $result = mysqli_fetch_array($result);
 ?>
 
-
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="well profile">
@@ -39,7 +38,7 @@ $result = mysqli_fetch_array($result);
                         </button>
                         <ul class="dropdown-menu text-left" role="menu">
                             <li><a href="#"><span class="fa fa-envelope pull-right"></span> Alterar Utilizador </a></li>
-                            <li><a href="#"><span class="fa fa-list pull-right"></span> Nova Triagem </a></li>
+                            <?php echo "<li><a href='index.php?operacao=adicionartriagem&id=".$identity."'><span class='fa fa-list pull-right'></span> Nova Triagem </a></li>";?>
                             <li class="divider"></li>
                             <li><a href="#"><span class="fa fa-warning pull-right"></span>Cenas</a></li>
                             <li class="divider"></li>
