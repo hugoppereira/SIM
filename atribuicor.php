@@ -38,7 +38,8 @@
     $_SESSION['hemorragia'] = $_POST["hemorragia"];                    //
     $_SESSION['azia'] = $_POST["azia"];                    //
     $_SESSION['vomitos'] = $_POST["vomitos"];                //
-    $_SESSION['cefaleia'] = $_POST["cefaleia"];            //
+    $_SESSION['cefaleia'] = $_POST["cefaleia"];
+    $_SESSION['temp'] = $_POST["temp"]; //
 
 ?>
 
@@ -57,7 +58,7 @@
     ?>
 </div>
 
-<?php $_SESSION['$class'] = $class; ?>
+<?php $_SESSION['class'] = $class; ?>
 
 <form method="post" action="index.php?operacao=adicionartriagem_sql">
     <div align="center">

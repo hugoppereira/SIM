@@ -54,16 +54,6 @@ session_start()
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilizadores <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Nova Utilizador</a></li>
-                        <li><a href="#">Editar Utilizador</a></li>
-                        <li><a href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                
                 <?php
                 
 					if(isset($_SESSION['authuser'])){
@@ -72,18 +62,33 @@ session_start()
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
 						if ($_SESSION['authuser']==2){	//enfermeiro
-							
+
+                            echo '<li class="dropdown">';
+                                echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
+                                echo '<ul class="dropdown-menu">';
+                                    echo '<li><a href="index.php?operacao=listarpessoas">Listar Pessoas</a></li>';
+                                echo '</ul>';
+                            echo '</li>';
 							echo '<li class="dropdown">';
                     			echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
 								echo '<ul class="dropdown-menu">';
                            			echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
                             		echo '<li><a href="#">Editar Triagem</a></li>';
+                                    echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
                     			echo '</ul>';
                 			echo '</li>';
 						
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
 						if ($_SESSION['authuser']==3){	//medico
+                            echo '<li class="dropdown">';
+                            echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
+                            echo '<ul class="dropdown-menu">';
+                            echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
+                            echo '<li><a href="#">Editar Triagem</a></li>';
+                            echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
+                            echo '</ul>';
+                            echo '</li>';
 							echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
 						}
 						if ($_SESSION['authuser']==4){	//admin
@@ -95,8 +100,16 @@ session_start()
                                     echo '<li><a href="index.php?operacao=editarpessoa">Editar Pessoa</a></li>';
                                 echo '</ul>';
                             echo '</li>';
+                            echo '<li class="dropdown">';
+                                echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Triagem <span class="caret"></span></a>';
+                                echo '<ul class="dropdown-menu">';
+                                    echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
+                                    echo '<li><a href="#">Editar Triagem</a></li>';
+                                echo '</ul>';
+                            echo '</li>';
 
                             echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
+
 						}
 
 						
@@ -152,9 +165,19 @@ session_start()
                     include 'adicionartriagem.php';
                 if ($_GET['operacao']=='atribuicor')
                     include 'atribuicor.php';
+                if ($_GET['operacao']=='adicionartriagem_sql')
+                    include 'adicionartriagem_sql.php';
+                if ($_GET['operacao']=='listaespera')
+                    include 'listaespera.php';
+                if ($_GET['operacao']=='retirapaciente_sql')
+                    include 'retirapaciente_sql.php';
 
-			
-			}else{
+
+
+
+
+
+            }else{
 				 }
 	?>
 

@@ -29,7 +29,7 @@
 	    case 'medico':
 	        $_SESSION['authuser']=3;
 			$_SESSION['user']=$_POST["username"];
-			echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
+			echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php?operacao=listaespera'>";
 	        break;
 	    case 'admin':
 	    	$_SESSION['authuser']=4;

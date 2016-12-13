@@ -4,11 +4,17 @@
     <form method="post" action="index.php?operacao=atribuicor">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group row">
                     <label for="example-text-input" class="col-xs-1 col-form-label">ID:</label>
                     <div class="col-xs-5">
                         <p><?php echo $_SESSION['identity']; ?></p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-xs-2 col-form-label">Temperatura</label>
+                    <div class="col-xs-10">
+                        <input class="form-control" type="text" name="temp" id="temp" value="37">
                     </div>
                 </div>
             </div>
