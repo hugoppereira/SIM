@@ -208,7 +208,7 @@ session_start()
         $('#listprofiles').DataTable();
         $( "#datanasc" ).datepicker({ dateFormat: 'yy-mm-dd' });
     } );
-    });
+    })
 
 </script>
 
