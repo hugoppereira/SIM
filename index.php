@@ -206,12 +206,10 @@ session_start()
 <script>
     $(document).ready(function () {
         $('#listprofiles').DataTable();
-<<<<<<< 2702ebce4633252d7732f700bd61b79aadd2a7c7
         $( "#datanasc" ).datepicker({ dateFormat: 'yy-mm-dd' });
     } );
-=======
     });
->>>>>>> 4e881b61598390b75e447dcdb289f48c2a41c498
+
 </script>
 
 
