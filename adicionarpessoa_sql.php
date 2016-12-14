@@ -9,7 +9,11 @@ if (isset($_POST['guardar'])) {
     $nif    = $_POST['nif'];
     $username      = $_POST['username'];
     $pass     = $_POST['pass'];
-    $perfil = $_SESSION['perfil'];
+    if(isset($_SESSION['perfilaux'])){
+        $perfil = 'paciente';
+    }else {
+        $perfil = $_SESSION['perfil'];
+    }
 
     include_once "connection.php";
 
@@ -28,6 +32,7 @@ if (isset($_POST['guardar'])) {
         echo '<tr><td>Erro ao adicionar utilizador!</td></tr>';
         echo "An error has occurred: " . mysqli_error($link);
         echo "</table>"; //fechar a tabela
+        exit;
     } else {
         echo "<table>"; //comecar uma tabela
         echo '<tr><td>&nbsp;</td></tr>';
@@ -39,6 +44,7 @@ if (isset($_POST['guardar'])) {
 }
 
 if (isset($_SESSION['perfilaux'])){
+    unset($_SESSION['perfilaux']);
     $url = "index.php?operacao=adicionartriagem&id=$iduser";
     echo header('Location: ' . $url);
 }else {

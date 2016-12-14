@@ -24,6 +24,15 @@ session_start()
     <link href="css/sim.css" rel="stylesheet">
     <!-- dataTables css -->
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
+
+
+
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -84,8 +93,8 @@ session_start()
                         echo '</li>';
 
                         echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
-                        echo '<li><p align="right">Nome: ' . $_SESSION['nome'] . ' </p></li>';
-                        echo '<li><p>Perfil: ' . $_SESSION['perfil'] . ' </p></li>';
+                        echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </a></li>';
+                        echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
                     }
                     if ($_SESSION['authuser'] == 3) {    //medico
                         echo '<li class="dropdown">';
@@ -95,7 +104,7 @@ session_start()
                         echo '</ul>';
                         echo '</li>';
                         echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
-                        echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </aal></li>';
+                        echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </a></li>';
                         echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
                     }
                     if ($_SESSION['authuser'] == 4) {    //admin
@@ -112,6 +121,7 @@ session_start()
                         echo '<ul class="dropdown-menu">';
                         echo '<li><a href="index.php?operacao=triagem">Nova Triagem</a></li>';
                         echo '<li><a href="#">Editar Triagem</a></li>';
+                        echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
                         echo '</ul>';
                         echo '</li>';
                         echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
@@ -139,7 +149,7 @@ session_start()
 <div class="container theme-showcase" role="main">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron" align="center">
         <h1>Hospital FCT</h1>
     </div>
 
@@ -166,6 +176,8 @@ session_start()
             include 'listarpessoas.php';
         if ($_GET['operacao'] == 'editarpessoa')
             include 'editarpessoa.php';
+        if ($_GET['operacao'] == 'editarpessoa_sql')
+            include 'editarpessoa_sql.php';
         if ($_GET['operacao'] == 'verperfil')
             include 'verperfil.php';
         if ($_GET['operacao'] == 'triagem')
@@ -200,10 +212,23 @@ session_start()
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <!-- data tables bootstrap -->
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/i18n/defaults-*.min.js"></script>
 
 <script>
     $(document).ready(function () {
         $('#listprofiles').DataTable();
+        $('#datanasc').datepicker({ format: "yyyy-mm-dd" });
+        $('#selectpicker').selectpicker({
+            style: 'btn-info',
+            size: 4
+        });
     });
 </script>
 

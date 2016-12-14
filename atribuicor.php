@@ -63,15 +63,15 @@
 <form method="post" action="index.php?operacao=adicionartriagem_sql">
     <div align="center">
         <br>Pretende alterar a cor?<br>
-        <select name="class" style="width: 100px; height: 35px;">
-            <option style=" width: 80px; height: 35px; text-align:center" value="0">Não</option>
-            <option style="background-color:blue; width: 80px; height: 35px; text-align:center" value="1">AZUL</option>
-            <option style="background-color:green; width: 80px; height: 35px; text-align:center" value="2">VERDE</option>
-            <option style="background-color:yellow; width: 80px; height: 35px; text-align:center" value="3">AMARELO</option>
-            <option style="background-color:orange; width: 80px; height: 35px; text-align:center" value="4">LARANJA</option>
-            <option style="background-color:red; width: 80px; height: 35px; text-align:center" value="5">VERMELHO</option>
+        <select class="selectpicker" name="class">
+            <option style="text-align:center" value="0">Não</option>
+            <option style="background-color:blue; text-align:center" value="1">AZUL</option>
+            <option style="background-color:green; text-align:center" value="2">VERDE</option>
+            <option style="background-color:yellow; text-align:center" value="3">AMARELO</option>
+            <option style="background-color:orange; text-align:center" value="4">LARANJA</option>
+            <option style="background-color:red; text-align:center" value="5">VERMELHO</option>
         </select>
-        <br><br><input type="submit" name="Submit" value="Adicionar" style="width: 135px; height: 35px;">
+        <br><br><input class="btn btn-lg btn-primary" type="submit" name="Submit" value="Adicionar">
     </div>
 </form>
 

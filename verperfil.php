@@ -20,16 +20,17 @@ $result = mysqli_fetch_array($result);
                     <p><strong>Contacto: </strong> <?php echo $result['Contacto']; ?></p>
                     <p><strong>Sexo: </strong> <?php echo $result['Sexo']; ?></p>
                     <p><strong>DataNascimento: </strong> <?php echo $result['DataNascimento']; ?></p>
-                    <p><strong>outros: </strong>
-                        <span class="tags">cenas</span>
-                        <span class="tags">cenas</span>
-                        <span class="tags">cenas</span>
-                        <span class="tags">cenas</span>
-                    </p>
+<!--                    <p><strong>outros: </strong>-->
+<!--                        <span class="tags">cenas</span>-->
+<!--                        <span class="tags">cenas</span>-->
+<!--                        <span class="tags">cenas</span>-->
+<!--                        <span class="tags">cenas</span>-->
+<!--                    </p>-->
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <p><strong>Id: </strong><?php echo $result['UserId']; ?></p>
                     <p><strong>Username: </strong> <?php echo $result['Username']; ?></p>
+
                     <div class="btn-group dropup btn-block">
                         <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Opções</button>
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -37,12 +38,15 @@ $result = mysqli_fetch_array($result);
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu text-left" role="menu">
-                            <li><a href="#"><span class="fa fa-envelope pull-right"></span> Alterar Utilizador </a></li>
-                            <?php echo "<li><a href='index.php?operacao=adicionartriagem&id=".$identity."'><span class='fa fa-list pull-right'></span> Nova Triagem </a></li>";?>
-                            <li class="divider"></li>
-                            <li><a href="#"><span class="fa fa-warning pull-right"></span>Cenas</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" class="btn disabled" role="button"> Cenas </a></li>
+                        <?php    echo "<li><a href='index.php?operacao=editarpessoa&id=".$identity."'><span class='fa fa-envelope pull-right'></span> Editar Utilizador </a></li>";
+
+                            if ($_SESSION['authuser'] == 2) {
+                                echo "<li><a href='index.php?operacao=adicionartriagem&id=".$identity."'><span class='fa fa-list pull-right'></span> Nova Triagem </a></li>";
+                            } ?>
+<!--                            <li class="divider"></li>-->
+<!--                            <li><a href="#"><span class="fa fa-warning pull-right"></span>Cenas</a></li>-->
+<!--                            <li class="divider"></li>-->
+<!--                            <li><a href="#" class="btn disabled" role="button"> Cenas </a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -85,7 +89,7 @@ $result = mysqli_fetch_array($result);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
 
-                                echo "<tr>
+                                    echo "<tr>
                                     <td>" . $row["triagemid"] . "</td>
                                     <td>" . $row["difresp"] . "</td>
                                     <td> " . $row["probcard"] . "</td>
@@ -101,19 +105,19 @@ $result = mysqli_fetch_array($result);
 
                                     <?php if ($row["triagem"] == 1) { ?>
                                         <td bgcolor="blue"></td>
-                                    <?php
+                                        <?php
                                     } else {
                                         if ($row["triagem"] == 2) { ?>
                                             <td bgcolor="green"></td>
-                                        <?php
+                                            <?php
                                         } else {
                                             if ($row["triagem"] == 3) { ?>
                                                 <td bgcolor="yellow"></td>
-                                            <?php
+                                                <?php
                                             } else {
                                                 if ($row["triagem"] == 4) { ?>
                                                     <td bgcolor="orange"></td>
-                                                <?php
+                                                    <?php
                                                 } else {
                                                     if ($row["triagem"] == 5) { ?>
                                                         <td bgcolor="red"></td>
@@ -123,10 +127,10 @@ $result = mysqli_fetch_array($result);
                                             }
                                         }
                                     }
-                                echo"<td> " . $row["horaentrada"] . "</td>
+                                    echo "<td> " . $row["horaentrada"] . "</td>
                                      <td> " . $row["horasaida"] . "</td>
                                     </tr>";
-                                    }
+                                }
                             } else {
                                 echo "0 results";
                             }
