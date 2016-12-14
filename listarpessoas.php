@@ -27,8 +27,8 @@ $result = $link->query($sql);
     <tbody>
     <?php
     if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo "<tr><td> <a href='index.php?operacao=verperfil&id=".$row['Userid']."'>".$row["Userid"]."</td><td>" . $row["Nome"]. "</td><td> " . $row["DataNascimento"]. "</td><td> " . $row["Perfil"]."</td></tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr><td> <a href='index.php?operacao=verperfil&id=" . $row['Userid'] . "'>" . $row["Userid"] . "</td><td>" . $row["Nome"] . "</td><td> " . $row["DataNascimento"] . "</td><td> " . $row["Perfil"] . "</td></tr>";
         }
     } else {
         echo "0 results";

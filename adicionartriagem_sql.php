@@ -21,7 +21,11 @@
 
     $emespera = 1;
 
-    include_once "connection.php";
+if($_POST['class'] != 0)
+    $_SESSION['class'] = $_POST['class'];
+
+
+include_once "connection.php";
 
     $link = GetMyConnection();
 
@@ -47,22 +51,4 @@
 
 mysqli_close($link);
 
-
-//triagem id
-//user id
-// $difresp,
-// $probcard,
-// $fracturas,
-// $tonturas,
-//$hemorragia,
-//  $azia,
-// $vomitos,
-// $cefaleia//
-// //$temp
-//$tensao,
-//$glicemia,
-//$triagem class
-//horaentrada
-//horasaida
-//emespera
 ?>

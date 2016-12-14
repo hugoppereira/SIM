@@ -2,8 +2,6 @@
 
 require ("configuration.php");
 
-
-
 function GetMyConnection()
 {
     global $g_link;

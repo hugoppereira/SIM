@@ -10,8 +10,6 @@ $sql = "UPDATE Users
 
 $result = mysqli_query($link,$sql);
 
-
-echo "An error has occurred: " . mysqli_error($link);
 if($result==0){
     echo "<table>"; //comecar uma tabela
     echo '<tr><td>&nbsp;</td></tr>';
@@ -23,6 +21,7 @@ if($result==0){
     echo '<tr><td>&nbsp;</td></tr>';
     echo '<tr><td>Utilizador editado com sucesso!</td></tr>';
     echo "</table>"; //fechar a tabela
+    echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php'>";
 }
 
 mysqli_close($link);

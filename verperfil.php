@@ -9,7 +9,6 @@ $sql = "SELECT * FROM Users where UserID = $identity";
 $result = $link->query($sql);
 $result = mysqli_fetch_array($result);
 ?>
-
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="well profile">
@@ -61,7 +60,6 @@ $result = mysqli_fetch_array($result);
                                        tensao, glicemia, triagem, horaentrada, horasaida FROM Triagem WHERE UserID = $identity";
                         $result = $link->query($sql);
                         ?>
-
                         <table id="listprofiles" class="table table-striped table-bordered" cellspacing="0"
                                style="width: 100%">
                             <thead>
@@ -85,10 +83,8 @@ $result = mysqli_fetch_array($result);
                             </thead>
                             <tbody>
                             <?php
-
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
-
                                     echo "<tr>
                                     <td>" . $row["triagemid"] . "</td>
                                     <td>" . $row["difresp"] . "</td>
@@ -134,9 +130,7 @@ $result = mysqli_fetch_array($result);
                             } else {
                                 echo "0 results";
                             }
-
                             $link->close();
-
                             ?>
                             </tbody>
                         </table>

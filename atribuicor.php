@@ -2,7 +2,6 @@
 
     include_once "calculacor.php";
 
-
     if (!isset($_POST['glicemia']))
         $_POST['glicemia'] = 0;
     if (!isset($_POST['difresp']))
@@ -24,10 +23,8 @@
     if (!isset($_POST['cefaleia']))
         $_POST['cefaleia'] = 0;
 
-
     $class = GetColor($_POST['glicemia'], $_POST['difresp'], $_POST['probcard'], $_POST['fracturas'], $_POST['tonturas'],
         $_POST['tensao'], $_POST['hemorragia'], $_POST['azia'], $_POST['vomitos'], $_POST['cefaleia']);
-
 
     $_SESSION['glicemia'] = $_POST["glicemia"];            //
     $_SESSION['difresp'] = $_POST["difresp"];                //
@@ -40,7 +37,6 @@
     $_SESSION['vomitos'] = $_POST["vomitos"];                //
     $_SESSION['cefaleia'] = $_POST["cefaleia"];
     $_SESSION['temp'] = $_POST["temp"]; //
-
 ?>
 
 <div align="center">
@@ -73,6 +69,7 @@
         </select>
         <br><br><input class="btn btn-lg btn-primary" type="submit" name="Submit" value="Adicionar">
     </div>
+
 </form>
 
 

@@ -1,6 +1,3 @@
-//mostrar pacientes.
-//se não estives registado, fazer registo do pacinete e depois triagme
-
 <?php
 include_once "connection.php";
 
@@ -36,9 +33,7 @@ $result = $link->query($sql);
     } else {
         echo "0 results";
     }
-
     $link->close();
-
     ?>
     </tbody>
 </table>

@@ -31,10 +31,6 @@ session_start()
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
 
-
-
-
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="html5shiv.min.js"></script>
@@ -72,11 +68,8 @@ session_start()
                         echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
                         echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </a></li>';
                         echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
-
-
                     }
                     if ($_SESSION['authuser'] == 2) {    //enfermeiro
-
                         echo '<li class="dropdown">';
                         echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gerir Pessoal<span class="caret"></span></a>';
                         echo '<ul class="dropdown-menu">';
@@ -91,7 +84,6 @@ session_start()
                         echo '<li><a href="index.php?operacao=listaespera">Lista de espera</a></li>';
                         echo '</ul>';
                         echo '</li>';
-
                         echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
                         echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </a></li>';
                         echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
@@ -127,22 +119,16 @@ session_start()
                         echo '<li><a href="index.php?operacao=checklogout">Logout</a></li>';
                         echo '<li><a>Nome: ' . $_SESSION['nome'] . ' </a></li>';
                         echo '<li><a>Perfil: ' . $_SESSION['perfil'] . ' </a></li>';
-
                     }
-
-
                     if ($_SESSION['authuser'] != 1 && $_SESSION['authuser'] != 2 && $_SESSION['authuser'] != 3 && $_SESSION['authuser'] != 4) {
                         echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
                     }
-
                 } else {
                     echo '<li><a href="index.php?operacao=showlogin">Login</a></li>';
                 }
                 ?>
             </ul>
-
         </div><!--/.nav-collapse -->
-
     </div>
 </nav>
 

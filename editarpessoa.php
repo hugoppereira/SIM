@@ -17,7 +17,7 @@ $result = mysqli_fetch_array($result);
             <div class="form-group row">
                 <label for="example-text-input" class="col-xs-2 col-form-label">ID</label>
                 <div class="col-xs-10">
-                    <input class="form-control" type="text" name="identity" id="identity" value="<?php echo $result['UserId']; ?>" >
+                    <input readonly class="form-control" type="text" name="identity" id="identity" value="<?php echo $result['UserId']; ?>" >
                 </div>
             </div>
 
